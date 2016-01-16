@@ -51,7 +51,8 @@ end
 group :production do
   # Use postgreSQL as the databse for production deployment
   gem 'pg'
-  #
+  # for authentication maybe ??
+  
   gem 'rails_12factor'
 
 end
