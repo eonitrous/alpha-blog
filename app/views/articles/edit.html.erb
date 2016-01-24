@@ -1,4 +1,4 @@
-<h1>Create an article</h1>
+<h1>Edit existing article </h1>
 
 <!-- check if there are errors in saving the article to database -->
 <% if @article.errors.any? %>
@@ -30,7 +30,6 @@
   <p>
     <%= f.submit %>
   </p>
-
 <% end %>
 
 <%= link_to "Back to article listing", articles_path %>
