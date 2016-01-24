@@ -8,14 +8,10 @@
 </head>
 <body>
 
-  <!-- flash a message after article save process -->
-  <% flash.each do |name, msg| %>
-    <ul>
-      <li> <%= msg %> </li>
-    </ul>
-  <% end %>
+  <!-- include message handling moved to _messages.html.erb file -->
+  <%= render 'layouts/messages' %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
