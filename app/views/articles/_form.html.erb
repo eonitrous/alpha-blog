@@ -10,25 +10,44 @@
 <% end %>
 
 
-
+<div class="row">
+  <div class="col-sm-12">
 
 <!-- display the default form for new article entry  created by default Rails methods -->
-<%= form_for @article do |f| %>
-  <!-- display a text box to input title field -->
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
-  <!-- display a text area to input description field -->
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
-  <!-- display a submit button which magically displays "Create Article" text on it -->
-  <p>
-    <%= f.submit %>
-  </p>
+    <%= form_for(@article, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <!-- display a text box to input title field -->
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :title %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :title, class: "form-control", placeholder:"Title of article", autofocus: true %>
+        </div>
+    </div>
+      <!-- display a text area to input description field -->
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :description %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.text_area :description, rows:10, class: "form-control", placeholder:"Body of article"%>
+      </div>
+    </div>
+      <!-- display a submit button which magically displays "Create Article" text on it -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit class: "btn btn-primary bth-lg" %>
+        </div>
+    </div>
 
-<% end %>
+    <% end %>
+<!-- end of do block to display the form -->
 
-<%= link_to "Back to article listing", articles_path %>
+    <div class="col-xs-4 col-xs-offset-4">
+      [ <%= link_to "Cancel request and return to article listing", articles_path %> ]
+    </div>
+
+
+  </div> <!-- end class col-md-12 -->
+</div><!-- end class row -->
+
