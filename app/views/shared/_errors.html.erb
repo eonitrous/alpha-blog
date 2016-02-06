@@ -9,7 +9,7 @@
             <%= pluralize(obj.errors.count, "error") %>
             prohibited this article from being saved:
           </h2>
-        </div>
+ <!-- closing div was omitted at purpose here -->       
           <div class="panel-body">
             <ul>
               <% obj.errors.full_messages.each do |msg| %>
@@ -17,6 +17,7 @@
               <% end %>
             </ul>
           </div>
+        </div>
 
         </div>
       </div>
