@@ -9,16 +9,18 @@
 <body>
   <!-- include navigation bar from partial -->
   <%= render 'layouts/navigation' %>
-  
+
   <!-- include message handling moved to _messages.html.erb file -->
   <%= render 'layouts/messages' %>
 
   <div class="container">
     <%= yield %>
   </div>
-  
+
   <!-- include footer from partial -->
   <%= render 'layouts/footer' %>
-  
+  <!-- show debug parameters only in Rails development environment -->
+  <%= debug(params) if Rails.env.development? %>
+
 </body>
 </html>
