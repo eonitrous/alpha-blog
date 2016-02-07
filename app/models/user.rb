@@ -11,11 +11,14 @@ class User < ActiveRecord::Base
             uniqueness: {case_sensitive: false},
             length: {minimum: 3, maximum: 25}
   #validation regex definition for email field
-  VALID_EMAIL_REGEX = /\A[w+\-.]+0[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   # validation rules for email field
   validates :email, presence: true, length: { maximum: 105},
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
+
+  # require secure password using bcrypt gem 
+  has_secure_password
 
 end
