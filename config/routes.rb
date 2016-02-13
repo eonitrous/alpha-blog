@@ -12,6 +12,16 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   resources :articles
+
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
+  # post 'users', to: 'users#create'
+  # to assign routes one by one we would have a line like above for all actions
+  # however the instructor changed his mind and changed it to the above way for
+  #every action except new user
+  
+  
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
