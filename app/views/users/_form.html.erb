@@ -1,0 +1,56 @@
+<!-- check if there are errors in saving the userto database -->
+<%= render 'shared/errors', obj: @user %>
+
+<div class="row">
+  <div class="col-sm-12">
+
+<!-- display the default form for new user entry  created by default Rails methods -->
+    <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <!-- display a text box to input title field -->
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :username %>
+        </div>
+        <div class="col-sm-8">
+          <%= f.text_field :username, class: "form-control", placeholder:"Enter User Name", autofocus: true %>
+        </div>
+    </div>
+      <!-- display an email field to input email address -->
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :email %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.email_field :email, class: "form-control", placeholder:"Enter email"%>
+      </div>
+    </div>
+
+
+    <!-- display a password field to input password -->
+    <div class="form-group">
+      <div class="control-label col-sm-2">
+        <%= f.label :password %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.password_field :password, class: "form-control", placeholder:"Enter password"%>
+      </div>
+    </div>
+
+      <!-- display a submit button which magically displays "Create Article" text on it -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-primary bth-lg" ) %>
+        </div>
+    </div>
+
+    <% end %>
+<!-- end of do block to display the form -->
+
+    <div class="col-xs-4 col-xs-offset-4">
+      [ <%= link_to "Cancel request and return to article listing", articles_path %> ]
+    </div>
+
+
+  </div> <!-- end class col-md-12 -->
+</div><!-- end class row -->
+
