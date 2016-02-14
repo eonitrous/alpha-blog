@@ -2,7 +2,9 @@
 
 
 <div align="center">
-
+<!-- add pagination code to top -->
+  <%= will_paginate %>
+  
   <% @users.each do |user| %>
 
 
@@ -20,5 +22,7 @@
   </ul>
 
   <% end %>
-
+<!-- add pagination code to bottom -->
+  <%= will_paginate %>
+  
 </div>

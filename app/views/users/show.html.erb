@@ -8,4 +8,14 @@
 
 <h4 align="center"><%= @user.username %>'s articles</h4>
 
-<%= render 'articles/article', obj: @user.articles %>
+
+<!-- add pagination code to top for user articles-->
+<div class="center">
+  <%= will_paginate @user_articles %>
+</div>
+<!-- render using _form.html.erb partial -->
+<%= render 'articles/article', obj: @user_articles %>
+<!-- add pagination code to bottom for user articles-->
+<div class="center">
+  <%= will_paginate @user_articles %>
+</div>
