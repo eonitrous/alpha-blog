@@ -1,0 +1,38 @@
+<h1 align="center">Log in</h1>
+<!-- display the default form for new user entry  created by default Rails methods -->
+<%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+
+<!-- display an email field to input email address -->
+<div class="form-group">
+  <div class="control-label col-sm-2">
+    <%= f.label :email %>
+  </div>
+  <div class="col-sm-8">
+    <%= f.email_field :email, class: "form-control", placeholder:"Enter email", autofocus: true%>
+  </div>
+</div>
+
+
+<!-- display a password field to input password -->
+<div class="form-group">
+  <div class="control-label col-sm-2">
+    <%= f.label :password %>
+  </div>
+  <div class="col-sm-8">
+    <%= f.password_field :password, class: "form-control", placeholder:"Enter password", autocomplete: "off"%>
+  </div>
+</div>
+
+  <!-- display a submit button which magically displays "Create Article" text on it -->
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Log in" , class: "btn btn-primary bth-lg"  %>
+    </div>
+  </div>
+
+<% end %>
+<!-- end of do block to display the form -->
+
+<div class="col-xs-4 col-xs-offset-4">
+  [ <%= link_to "Cancel request and return to article listing", articles_path %> ]
+</div>
