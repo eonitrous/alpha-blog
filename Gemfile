@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-ruby "2.2.4"
+
+#set ruby version to the minimum required by Heroku
+ruby "2.2.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -59,7 +61,7 @@ group :production do
   # Use postgreSQL as the databse for production deployment
   gem 'pg'
   # for authentication maybe ??
-  
+
   gem 'rails_12factor'
 
 end
