@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect # inspect what has been passed from article.new form
 
     #to use the debugger byebug gem
-    debugger
+    #debugger
 
     @article = Article.new(article_params) #  create instance to hold the values passed from the new article form
    # @article.save #save contents of article instance to database table
@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
     # @article.user = User.first
     # authentication done, now add working user selection code
     @article.user = current_user
-    
+
     # Correct way of doing a save from a form is supposedly be given below
     # This instructor is a mess
     if @article.save # if save was successful
