@@ -34,8 +34,10 @@ class ArticlesController < ApplicationController
    # @article.save #save contents of article instance to database table
 
     # temporarily hard coded user selection for articles table until the authentication part is done
-    @article.user = User.first
-
+    # @article.user = User.first
+    # authentication done, now add working user selection code
+    @article.user = current_user
+    
     # Correct way of doing a save from a form is supposedly be given below
     # This instructor is a mess
     if @article.save # if save was successful
