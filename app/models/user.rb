@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
 
   # association declaration to articles table
-  has_many :articles
+  # second part is to delete all articles  as well if a user is deleted
+  has_many :articles, dependent: :destroy
 
   # change email field to downcase before saving
   before_save {self.email = email.downcase}
@@ -18,7 +19,7 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
 
-  # require secure password using bcrypt gem 
+  # require secure password using bcrypt gem
   has_secure_password
 
 end

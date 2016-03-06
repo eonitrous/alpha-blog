@@ -4,7 +4,7 @@
 <div align="center">
 <!-- add pagination code to top -->
   <%= will_paginate %>
-  
+
   <% @users.each do |user| %>
 
 
@@ -17,6 +17,12 @@
                <%= link_to user.username, user_path(user) %>
              </li>
              <li><small><%= pluralize(user.articles.count, "article") if user.articles %></small></li>
+             <!-- code to show delete user action for admin users only -->
+             <% if logged_in? and current_user.admin? %>
+               <li><%= link_to "Delete this user", user_path(user), method: :delete,
+                  data: { confirm: "Are you sure you want to delete the user and all his articles?"} %> 
+             </li>
+             <% end %>
         </div>
       </div>
   </ul>
@@ -24,5 +30,5 @@
   <% end %>
 <!-- add pagination code to bottom -->
   <%= will_paginate %>
-  
+
 </div>

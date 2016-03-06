@@ -93,7 +93,7 @@ class ArticlesController < ApplicationController
     # current_user is initialized by require_user
     # @article.user is initialized by set_article
     # so we can use both of these already available instance variables
-    if current_user =! @article.user
+    if current_user != @article.user and !current_user.admin?
       flash[:danger] = "You can only edit or delete your own articles"
       redirect_to root_path
     end
