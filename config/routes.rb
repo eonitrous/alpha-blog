@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-
+  # routes for categories - which does not have a delete action
+  resources :categories, except: [:destroy]
   # post 'users', to: 'users#create'
   # to assign routes one by one we would have a line like above for all actions
   # however the instructor changed his mind and changed it to the above way for
