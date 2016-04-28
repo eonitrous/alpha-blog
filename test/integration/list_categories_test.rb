@@ -1,7 +1,7 @@
 require 'test_helper'
 
 # Integration test to simulate a whole user action  - here listing categories
-class CreateCategoriesTest < ActionDispatch::IntegrationTest
+class ListCategoriesTest < ActionDispatch::IntegrationTest
 
   # set up categories to test
   def setup
