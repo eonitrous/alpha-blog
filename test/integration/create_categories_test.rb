@@ -3,7 +3,17 @@ require 'test_helper'
 # Integration test to simulate a whole user action  - here creating categories
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
+  def setup
+    # set up a test admin user to be used by test methods
+    @user = User.create(username: "john", email: "john@example.com", password: "password", admin: true)
+  end
+
+
+
   test "get new category form and create category" do
+    # simulate an admin user sign in, don't know why and how
+    # the sign_in_as method is placed in test_helper.rb, instructor decided to put it there
+    sign_in_as(@user, "password")
 
     get new_category_path
     # Can we get new  category form ?
@@ -25,6 +35,9 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
   #test when a category should not be created
   test "invalid category submisson results in failure" do
+    # simulate an admin user sign in, don't know why and how
+    # the sign_in_as method is placed in test_helper.rb, instructor decided to put it there
+    sign_in_as(@user, "password")
 
     get new_category_path
     # Can we get new  category form ?
