@@ -2,6 +2,10 @@ class Article < ActiveRecord::Base
   
   # association declaration to user table
   belongs_to :user
+  
+  #associate this table to categories through article_categories
+  has_many :article_categories
+  has_many :categories, through: :article_categories
 
   #validation rules for title field
   validates :title, presence: true, length: { minimum: 3, maximum: 50}
