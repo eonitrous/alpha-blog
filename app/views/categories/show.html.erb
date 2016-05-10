@@ -1,6 +1,13 @@
 <h1 align="center"><%= "Category: " + @category.name %></h1>
 <!-- add pagination code to top -->
 <div align="center">
+  <!-- display link to edit Category name to admin users-->
+  <% if logged_in? and current_user.admin? %>
+    <div class="row">
+      <span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+    </div>
+  <% end %>
+    <!-- display paginated category articles  listing -->
   <%= will_paginate @category_articles %>
 </div>
 <!-- call _article.html.erb partial to display the form -->
