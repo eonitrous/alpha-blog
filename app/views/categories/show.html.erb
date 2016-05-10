@@ -1,0 +1,11 @@
+<h1 align="center"><%= "Category: " + @category.name %></h1>
+<!-- add pagination code to top -->
+<div align="center">
+  <%= will_paginate @category_articles %>
+</div>
+<!-- call _article.html.erb partial to display the form -->
+<%= render 'articles/article', obj: @category_articles %>
+<!-- add pagination code to bottom -->
+<div align="center">
+  <%= will_paginate @category_articles %>
+</div>

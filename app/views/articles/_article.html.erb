@@ -23,8 +23,15 @@
           </small>
         </div>
 
-
       </div>
+
+      <!-- list categories here -->
+      <% if article.categories.any? %>
+
+        <p>Categories: <%= render article.categories %></p>
+
+      <% end %>
+
 
       <!-- Restirct edit and delete article actions to the user who created them -->
       <% if logged_in? && (current_user == article.user || current_user.admin? ) %>

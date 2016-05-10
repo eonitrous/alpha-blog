@@ -24,10 +24,19 @@
 
   <h4 class="center description"><strong>Description:</strong></h4>
   <hr>
+  <!-- Display article description here -->
   <%= simple_format(@article.description) %>
 
+  <!-- display article categories after article description and above article actions -->
+  <% if @article.categories.any? %>
+    <!-- use a partial to display categories -->
+    <p>Categories: <%= render @article.categories %></p>
+
+  <% end %>
+
+
   <div class="article-actions">
-    <!-- only the user creating the article is alloed to edit and delete the article -->
+    <!-- only the user creating the article is allowed to edit and delete the article -->
      <% if logged_in? && ( current_user == @article.user || current_user.admin? ) %>
       <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
       <%= link_to "Delete this article", article_path(@article), method: :delete,

@@ -15,9 +15,15 @@
 
       <div class="well col-md-4 col-md-offset-4">
 
+        <!-- display category name a link to category path -->
         <li class="article-title">
-        <%= link_to "#{category.name}", category_path(category) %>
-      </li>
+          <%= link_to "#{category.name}", category_path(category) %>
+         </li>
+
+         <!-- display number of articles in that csategory below category name -->
+        <li><small>
+          <%= pluralize(category.articles.count, "article") %>
+        </small></li>
 
       </div>
 

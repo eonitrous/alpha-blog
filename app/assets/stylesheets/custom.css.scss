@@ -1,4 +1,4 @@
-$navbar-default-bg: black;
+$navbar-default-bg: red;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -63,6 +63,17 @@ $navbar-default-bg: black;
 .listing {
   list-style: none;
   padding-left: 0;
+}
+
+.badge {
+  background-color: #CEF6F5;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.input_cehckbox input {
+  width: auto !important;
 }
 
 
